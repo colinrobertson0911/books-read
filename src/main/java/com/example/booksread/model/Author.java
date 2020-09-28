@@ -12,13 +12,21 @@ public class Author {
     private long authorId;
 
     @Column
-    private String name;
+    private String firstname;
 
-    public Author(String name) {
-        this.name = name;
+    @Column
+    private String lastname;
+
+    public Author(String firstname, String lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
     public Author() {
+    }
+
+    public String getFullName() {
+        return this.firstname + this.lastname;
     }
 
     public long getAuthorId() {
@@ -29,12 +37,20 @@ public class Author {
         this.authorId = authorId;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     @Override
@@ -43,19 +59,21 @@ public class Author {
         if (!(o instanceof Author)) return false;
         Author author = (Author) o;
         return getAuthorId() == author.getAuthorId() &&
-                getName().equals(author.getName());
+                getFirstname().equals(author.getFirstname()) &&
+                getLastname().equals(author.getLastname());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getAuthorId(), getName());
+        return Objects.hash(getAuthorId(), getFirstname(), getLastname());
     }
 
     @Override
     public String toString() {
         return "Author{" +
                 "authorId=" + authorId +
-                ", name='" + name + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 '}';
     }
 }

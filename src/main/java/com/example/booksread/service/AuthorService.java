@@ -13,7 +13,16 @@ public class AuthorService {
     @Autowired
     private AuthorDao authorDao;
 
-    public List<Author> findByName(String name){
-        return authorDao.findByName(name);
+    public List<Author> findByLastname(String lastname){
+        return authorDao.findByLastname(lastname);
     }
+
+    public List<Author> findAll() {
+        return authorDao.findAll();
+    }
+
+    public Author save(Author author) {
+        return authorDao.save(author);
+    }
+
 }
