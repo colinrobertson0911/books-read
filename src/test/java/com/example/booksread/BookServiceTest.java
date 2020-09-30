@@ -47,12 +47,6 @@ public class BookServiceTest {
     }
 
     @Test
-    public void test_thatAListOfBooksCanBeRetrievedByAuthor() {
-        List<Book> books = bookService.findByAuthor("Silvers");
-        assertFalse(books.isEmpty());
-    }
-
-    @Test
     public void test_thatAListOfBooksCanBeRetrievedBySeries() {
         List<Book> books = bookService.findBySeries("Nate Temple");
         assertFalse(books.isEmpty());

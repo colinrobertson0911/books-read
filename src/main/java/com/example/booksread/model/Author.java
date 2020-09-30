@@ -26,7 +26,7 @@ public class Author {
     }
 
     public String getFullName() {
-        return this.firstname + this.lastname;
+        return this.firstname + " " + this.lastname;
     }
 
     public long getAuthorId() {
