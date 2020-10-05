@@ -1,0 +1,110 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+}
+
+body {
+	max-width: 95%;
+	height: auto;
+	padding: 1vh;
+	background-color: lightgrey;
+}
+
+header {
+	max-width: 100%;
+	height: auto;
+	padding: 1vh;
+	background-color: lightblue;
+}
+
+.page-container {
+	margin: 0 auto;
+	width: 90vw;
+}
+
+
+
+h1 {
+	font-size: 2.5em;
+		
+}
+
+.page-title {
+	padding 50px 20px;
+	text-align: center;
+}
+
+.imgBook {
+	max-width: 100%;
+	height: auto;
+	padding: .5vh .5vw;
+	
+}
+
+.row {
+	clear: both;
+	max-width: 100%;
+	height: auto;
+	padding: 0 0 0 1%;
+	overflow: hidden;
+}
+
+.col {
+	float: left;
+	margin: 1%;
+}
+
+.col--1 {
+	width: 7%;
+}
+
+.col--2 {
+	width: 14%;
+}
+
+.col--4 {
+	width: 31%;
+}
+
+.col--6 {
+	width: 48%;
+}
+
+.last--col {
+	margin: 1%;
+	float: right;
+}
+
+.books {
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 1%;
+	
+}
+
+.title {
+	font-weight: bold;
+	font-size: 1em;
+}
+
+.series {
+	font-style: italic;
+	font-size: 1em
+}
+
+.author {
+	font-size: 1em;
+}
+
+.read {
+	font-size: 1em;
+	color: red;
+}
+
+p {
+	color: red;
+}
+
+

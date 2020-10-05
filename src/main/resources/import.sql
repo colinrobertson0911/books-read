@@ -7,9 +7,9 @@ insert into book(BOOKID, TITLE, SERIES, READ) values (BOOK_SEQ.nextval, 'Once Bi
 insert into book(BOOKID, TITLE, SERIES, READ) values (BOOK_SEQ.nextval, 'Wicked Deal', 'Shadow Guild: The Rebel Book 2', 0);
 
 
-insert into author(AUTHORID, FIRSTNAME, LASTNAME) values (AUTHOR_SEQ.nextval, 'Shayne', 'Silvers');
-insert into author(AUTHORID, FIRSTNAME, LASTNAME) values (AUTHOR_SEQ.nextval, 'Melissa F.', 'Olsen');
-insert into author(AUTHORID, FIRSTNAME, LASTNAME) values (AUTHOR_SEQ.nextval, 'Linsey', 'Hall');
+insert into author(AUTHORID, FULLNAME) values (AUTHOR_SEQ.nextval, 'Shayne Silvers');
+insert into author(AUTHORID, FULLNAME) values (AUTHOR_SEQ.nextval, 'Melissa F. Olsen');
+insert into author(AUTHORID, FULLNAME) values (AUTHOR_SEQ.nextval, 'Linsey Hall');
 
 
 insert into book_author(BOOKID, AUTHORID) values (1,1);

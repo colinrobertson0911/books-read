@@ -21,8 +21,7 @@ public class AuthorServiceTest {
     @Test
     public void test_thatAnAuthorCanBeAdded() {
         Author author = new Author();
-        author.setFirstname("Michael");
-        author.setLastname("Anderle");
+        author.setFullName("Michael Anderle");
         int numberBeforeAdding = authorService.findAll().size();
         authorService.save(author);
         int numberAfterAdding = authorService.findAll().size();
@@ -31,7 +30,7 @@ public class AuthorServiceTest {
 
     @Test
     public void test_thatAnAuthorCanBeRetrievedByName() {
-        List<Author> authors = authorService.findByLastname("Silvers");
+        List<Author> authors = authorService.findByFullName("Shayne Silvers");
         assertFalse(authors.isEmpty());
     }
 }

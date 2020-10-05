@@ -6,74 +6,72 @@ import java.util.Objects;
 @Entity
 public class Author {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "author_gen")
-    @SequenceGenerator(name = "author_gen", sequenceName = "AUTHOR_SEQ", allocationSize = 1)
-    private long authorId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "author_gen")
+	@SequenceGenerator(name = "author_gen", sequenceName = "AUTHOR_SEQ", allocationSize = 1)
+	private long authorId;
 
-    @Column
-    private String firstname;
+	@Column
+	private String fullName;
 
-    @Column
-    private String lastname;
+	public Author(String fullName) {
+		super();
+		this.fullName = fullName;
+	}
 
-    public Author(String firstname, String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
+	public Author() {
+		super();
+	}
 
-    public Author() {
-    }
 
-    public String getFullName() {
-        return this.firstname + " " + this.lastname;
-    }
 
-    public long getAuthorId() {
-        return authorId;
-    }
+	public long getAuthorId() {
+		return authorId;
+	}
 
-    public void setAuthorId(long authorId) {
-        this.authorId = authorId;
-    }
+	public void setAuthorId(long authorId) {
+		this.authorId = authorId;
+	}
 
-    public String getFirstname() {
-        return firstname;
-    }
+	public String getFullName() {
+		return fullName;
+	}
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 
-    public String getLastname() {
-        return lastname;
-    }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (authorId ^ (authorId >>> 32));
+		result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
+		return result;
+	}
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Author other = (Author) obj;
+		if (authorId != other.authorId)
+			return false;
+		if (fullName == null) {
+			if (other.fullName != null)
+				return false;
+		} else if (!fullName.equals(other.fullName))
+			return false;
+		return true;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Author)) return false;
-        Author author = (Author) o;
-        return getAuthorId() == author.getAuthorId() &&
-                getFirstname().equals(author.getFirstname()) &&
-                getLastname().equals(author.getLastname());
-    }
+	@Override
+	public String toString() {
+		return "Author [authorId=" + authorId + ", fullName=" + fullName + "]";
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getAuthorId(), getFirstname(), getLastname());
-    }
-
-    @Override
-    public String toString() {
-        return "Author{" +
-                "authorId=" + authorId +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                '}';
-    }
 }
