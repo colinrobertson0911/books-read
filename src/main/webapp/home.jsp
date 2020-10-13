@@ -39,13 +39,21 @@
 				<div>
 					<form action="searchByAuthor" method="post">
 						
-							<label>Search By Author: </label><input type="text" list="authors" name="author"/>
-							<datalist id="authors">
-								<c:forEach items="${authors}" var="authors">
-									<option value="${authors.fullName}">
-								</c:forEach>
-							</datalist>
-							<input type="submit" value="search" />
+						<label>Search By Author: </label><input type="text" list="authors" name="fullName">
+						<datalist id="authors">
+							<c:forEach items="${authors}" var="authors">
+								<option value="${authors.fullName}">
+							</c:forEach>
+						</datalist>
+						<input type="submit" value="search" /> 
+					</form>
+				</div>	
+				<div>
+					<form action="searchNotRead" method="post">
+						<div>
+							<label>Search Books Not Read: </label>
+							<button type="submit">Search</button>
+						</div>
 					</form>
 				</div>	
 			</div>		

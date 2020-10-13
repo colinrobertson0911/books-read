@@ -57,4 +57,11 @@ public class BookServiceTest {
         List<Book> books = bookService.findAllNotRead();
         assertFalse(books.isEmpty());
     }
+    
+    @Test
+    public void test_thatAListOfBooksCanBeRetrievedByAuthor() {
+    	List<Book> books = bookService.findByAuthor("Shayne Silvers");
+    	System.out.println(books);
+    	assertFalse(books.isEmpty());
+    }
 }

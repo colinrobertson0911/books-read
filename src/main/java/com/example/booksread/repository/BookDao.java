@@ -11,8 +11,8 @@ public interface BookDao extends JpaRepository<Book, Long> {
 
     List<Book> findByTitleContainingIgnoreCase(@Param("title") String title);
 
-    @Query("select b from Book b where :author member of b.authors")
-    List<Book> findByAuthor(@Param("author") String fullName);
+    @Query(value = "SELECT * FROM BOOK INNER JOIN BOOK_AUTHOR ON BOOK.BOOKID = BOOK_AUTHOR.BOOKID INNER JOIN AUTHOR ON BOOK_AUTHOR.AUTHORID = AUTHOR.AUTHORID WHERE AUTHOR.FULLNAME = ?", nativeQuery = true)
+    List<Book> findByAuthor(@Param("name") String fullName);
 
     List<Book> findBySeriesContainingIgnoreCase(@Param("series") String series);
 

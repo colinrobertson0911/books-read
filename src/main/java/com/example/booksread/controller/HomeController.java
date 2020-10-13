@@ -72,14 +72,31 @@ public class HomeController {
     	ModelAndView modelAndView = new ModelAndView();
     	if (books.isEmpty()) {
     		modelAndView.setViewName("home.jsp");
-    		modelAndView.addObject("errorMessage", "No Books by that " + author.getFullName());
+    		modelAndView.addObject("errorMessage", "No Books by " + author.getFullName());
+    		modelAndView.addObject("visabilityMessage", "All Books");
+    		modelAndView.addObject("books", bookService.findAll());
+    		modelAndView.addObject("authors", authorService.findAll());
+    		return modelAndView;
+    	}
+    	modelAndView.setViewName("home.jsp");
+    	modelAndView.addObject("books", books);
+    	modelAndView.addObject("authors", authorService.findAll());
+    	return modelAndView;
+    }
+    
+    @PostMapping("/searchNotRead")
+    public ModelAndView searchNotRead(@ModelAttribute("books") Book book) {
+    	List<Book> books = bookService.findAllNotRead();
+    	ModelAndView modelAndView = new ModelAndView();
+    	if (books.isEmpty()) {
+    		modelAndView.setViewName("home.jsp");
+    		modelAndView.addObject("errorMessage", "You have read all books");
     		modelAndView.addObject("visabilityMessage", "All Books");
     		modelAndView.addObject("books", bookService.findAll());
     		return modelAndView;
     	}
     	modelAndView.setViewName("home.jsp");
     	modelAndView.addObject("books", books);
-    	modelAndView.addObject("authors", authorService.findAll());
     	return modelAndView;
     }
 
