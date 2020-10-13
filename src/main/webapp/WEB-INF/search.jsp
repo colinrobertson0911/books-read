@@ -15,16 +15,50 @@
 			<a href="home"><img class="imgBook" alt="logo - Books Read" src="images/openBook.jpg" style="width: 60%"/></a>
 		</div>
 		<div class="col col--6">
-			<h1 class="page-title">Books Read</h1>
+			<div>
+				
+				<form action="searchByTitle" method="post">
+					<div>
+						<label>Search By Title: </label><input type="text" name="title"/>
+						<button type="submit">Search</button>
+					</div>
+				</form>
+			</div>	
+			<div>
+				<form action="searchBySeries" method="post">
+					<div>
+						<label>Search By Series: </label><input type="text" name="series"/>
+						<button type="submit">Search</button>
+					</div>
+				</form>
+			</div>
 		</div>
-		<nav>
-			<p>${errorMessage}</p>
+		
 			<div class="col col--4 last--col">
-				<a href="search">Search Books</a>	
+					
+				<div>
+					<form action="searchByAuthor" method="post">
+						
+						<label>Search By Author: </label><input type="text" list="authors" name="fullName">
+						<datalist id="authors">
+							<c:forEach items="${authors}" var="authors">
+								<option value="${authors.fullName}">
+							</c:forEach>
+						</datalist>
+						<input type="submit" value="search" /> 
+					</form>
+				</div>	
+				<div>
+					<form action="searchNotRead" method="post">
+						<div>
+							<label>Search Books Not Read: </label>
+							<button type="submit">Search</button>
+						</div>
+					</form>
+				</div>	
 			</div>		
-		</nav>
+		
 	</header>
-	
 	<div class="page-container">
 	<h3>${visabilityMessage}</h3>
 			<c:forEach var="book" items="${books}">
