@@ -34,7 +34,8 @@ public class Book {
     private boolean read;
 
     public Book(String title, String series, List<Author> authors, boolean read) {
-        this.title = title;
+        super();
+    	this.title = title;
         this.series = series;
         this.authors = authors;
         this.read = read;

@@ -20,7 +20,12 @@
 		<nav>
 			<p>${errorMessage}</p>
 			<div class="col col--4 last--col">
-				<a href="search">Search Books</a>	
+				<div>
+					<a href="search">Search Books</a>
+				</div>
+				<div>
+					<a href="addBook">Add Book</a>
+				</div>
 			</div>		
 		</nav>
 	</header>

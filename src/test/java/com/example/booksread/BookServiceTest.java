@@ -26,7 +26,7 @@ public class BookServiceTest {
 
     @Test
     public void test_thatABookCanBeAdded() {
-        List<Author> authors = authorService.findByFullName("Linsey Hall");
+        List<Author> authors = authorService.findAll();
         authors.get(0);
         Book book = new Book();
         book.setTitle("Cursed Mate");

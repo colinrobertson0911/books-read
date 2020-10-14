@@ -18,9 +18,7 @@ public class Author {
 		this.fullName = fullName;
 	}
 
-	public Author() {
-		super();
-	}
+	public Author() {}
 
 
 
