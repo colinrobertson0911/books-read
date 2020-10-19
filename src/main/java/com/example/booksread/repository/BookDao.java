@@ -19,5 +19,7 @@ public interface BookDao extends JpaRepository<Book, Long> {
 
     @Query(value = "select * from book where book.read = false", nativeQuery = true)
     List<Book> findAllNotRead();
+
+	Book findByBookId(Long bookId);
     
 }

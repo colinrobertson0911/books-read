@@ -13,6 +13,10 @@ public class BookService {
 
     @Autowired
     private BookDao bookDao;
+    
+    public Book retrieveOne(Long bookId){
+    	return bookDao.findByBookId(bookId);
+    }
 
     public List<Book> findByTitle(String title){
         return bookDao.findByTitleContainingIgnoreCase(title);

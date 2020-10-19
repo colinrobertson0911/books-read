@@ -63,6 +63,7 @@
 	<h3>${visabilityMessage}</h3>
 			<c:forEach var="book" items="${books}">
 				<div>
+					<a href="viewBook?bookId=${book.bookId}">
 					<div  class="col col--2 books">
 						<div class="title">${book.title}</div>
 						<c:if test="${!empty(book.series)}">
@@ -76,9 +77,9 @@
 							${book.read}
 						</div>
 					</div>
+					</a>
 				</div>
 			</c:forEach>
-		
 	</div>
 </body>
 </html>

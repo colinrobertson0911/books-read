@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.booksread.model.Book;
@@ -25,17 +26,17 @@ public class HomeController {
 		return new ModelAndView("home.jsp", "books", bookService.findAll());
 	}
 
-	@GetMapping("/home")
+	@GetMapping("home")
 	public ModelAndView homeScreen() {
 		return new ModelAndView("home.jsp", "books", bookService.findAll());
 	}
 	
-	@GetMapping("/search")
+	@GetMapping("search")
 	public ModelAndView search() {
 		return new ModelAndView("WEB-INF/search.jsp", "books", bookService.findAll());
 	}
 	
-	@GetMapping("/addBook")
+	@GetMapping("addBook")
 	public ModelAndView addBook() {
 		ModelAndView modelAndView = new ModelAndView("WEB-INF/addBook.jsp");
 		modelAndView.addObject("book", new Book());
@@ -43,10 +44,15 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-	@PostMapping("/addBookSubmit")
+	@PostMapping("addBookSubmit")
 	public ModelAndView addBookSubmit(@ModelAttribute("book")Book book) {
 		bookService.save(book);
 		return new ModelAndView("home.jsp", "books", bookService.findAll());
+	}
+	
+	@GetMapping("viewBook")
+	public ModelAndView viewBook(@RequestParam("bookId")Long bookId) {
+		return new ModelAndView("WEB-INF/viewBook.jsp", "book", bookService.retrieveOne(bookId));
 	}
 
 }
