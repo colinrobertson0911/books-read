@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -26,6 +27,7 @@ public class BookServiceTest {
 
     @Test
     public void test_thatABookCanBeAdded() {
+    	LocalDate publishedDate = LocalDate.of(2020, 8, 31); 
         List<Author> authors = authorService.findAll();
         authors.get(0);
         Book book = new Book();
@@ -33,6 +35,8 @@ public class BookServiceTest {
         book.setSeries("Shadow Guild: The Rebel Book 5");
         book.setRead(false);
         book.setAuthors(authors);
+        book.setAsin("B08DP6RSDM");
+        book.setPublishedDate(publishedDate);
         int numberBeforeAdding = bookService.findAll().size();
         bookService.save(book);
         System.out.println(book);

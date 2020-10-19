@@ -31,7 +31,7 @@
 		</div>
 		<div>
 			<f:label path="authors">Authors:</f:label>
-			<f:select path="authors" items="${allAuthors}" itemLabel="fullName" multiple="multiple" required="required"/>
+			<f:select path="authors" items="${authors}" itemLabel="fullName" multiple="multiple" required="required"/>
 		</div>
 		<div>
 			<f:label path="read">Read:</f:label>

@@ -39,7 +39,7 @@ public class HomeController {
 	public ModelAndView addBook() {
 		ModelAndView modelAndView = new ModelAndView("WEB-INF/addBook.jsp");
 		modelAndView.addObject("book", new Book());
-		modelAndView.addObject("allAuthors", authorService.findAll());
+		modelAndView.addObject("authors", authorService.findAll());
 		return modelAndView;
 	}
 	
