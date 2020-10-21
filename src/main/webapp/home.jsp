@@ -18,24 +18,27 @@
 			<h1 class="page-title">Books Read</h1>
 		</div>
 		<nav>
-			<p>${errorMessage}</p>
-			<div class="col col--4 last--col">
+			
+			<div class="col col--2 last--col">
 				<div>
 					<a href="search">Search Books</a>
 				</div>
 				<div>
 					<a href="addBook">Add Book</a>
 				</div>
+				<div>
+					<a href="addAuthor">Add Author</a>
+				</div>
 			</div>		
 		</nav>
 	</header>
 	
 	<div class="page-container">
-	<h3>${visabilityMessage}</h3>
+	<h3>${visabilityMessage}</h3> <span class="error">${errorMessage}</span>
 			<c:forEach var="book" items="${books}">
 				<div>
 					<a href="viewBook?bookId=${book.bookId}">
-					<div  class="col col--2 books">
+					<div class="col col--3 books">
 						<div class="title">${book.title}</div>
 						<c:if test="${!empty(book.series)}">
 							<div class="series">${book.series}</div>
@@ -45,7 +48,7 @@
 						</c:forEach>
 						<div class="read">
 							<label>Read: </label>
-							${book.read}
+							${book.readFormatted}
 						</div>
 					</div>
 					</a>

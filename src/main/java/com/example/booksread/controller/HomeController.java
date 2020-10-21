@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.booksread.model.Author;
 import com.example.booksread.model.Book;
 import com.example.booksread.service.AuthorService;
 import com.example.booksread.service.BookService;
@@ -53,6 +54,19 @@ public class HomeController {
 	@GetMapping("viewBook")
 	public ModelAndView viewBook(@RequestParam("bookId")Long bookId) {
 		return new ModelAndView("WEB-INF/viewBook.jsp", "book", bookService.retrieveOne(bookId));
+	}
+	
+	@GetMapping("addAuthor")
+	public ModelAndView addAuthor() {
+		ModelAndView modelAndView = new ModelAndView("WEB-INF/addAuthor.jsp");
+		modelAndView.addObject("author", new Author());
+		return modelAndView;
+	}
+	
+	@PostMapping("addAuthorSubmit")
+	public ModelAndView addAuthorSubmit(@ModelAttribute("author")Author author) {
+		authorService.save(author);
+		return new ModelAndView("home.jsp", "books", bookService.findAll());
 	}
 
 }

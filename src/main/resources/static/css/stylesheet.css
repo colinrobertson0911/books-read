@@ -64,6 +64,10 @@ h1 {
 	width: 14%;
 }
 
+.col--3 {
+	width: 20%;
+}
+
 .col--4 {
 	width: 31%;
 }
@@ -103,12 +107,18 @@ h1 {
 	color: red;
 }
 
-p {
+.error {
 	color: red;
+}
+
+span {
+	color: blue;
 }
 
 a {
 	color: blue;
 }
+
+
 
 

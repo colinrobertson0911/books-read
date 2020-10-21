@@ -65,6 +65,14 @@ public class Book {
 		this.publishedDate = publishedDate;
 	}
 	
+	public String getReadFormatted() {
+		return this.isRead() ? "Yes" : "No";
+	}
+	
+	public String getDateReadFormatted() {
+		return this.getDateRead().format(FormatWithLocale.DATE_FORMATTER);
+	}
+	
 	public String getPublishedDateFormatted() {
 		return this.getPublishedDate().format(FormatWithLocale.DATE_FORMATTER);
 	}

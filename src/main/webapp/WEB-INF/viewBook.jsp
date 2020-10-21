@@ -19,27 +19,33 @@
 	<div>
 			
 		<div  class="col col--4 books">
-			<div class="title">${book.title}</div>
+			<div class="title">
+			<label>Title: </label>${book.title}</div>
 			<c:if test="${!empty(book.series)}">
-				<div class="series">${book.series}</div>
+				<div class="series">
+				<label>Series: </label>${book.series}</div>
 			</c:if>
 			<c:forEach items="${book.authors}" var="author">
-				<div class="author">${author.fullName}</div>
+				<div class="author">
+				<label>Author: </label>${author.fullName}</div>
 			</c:forEach>
-			<div class="read">
+			<div>
 				<label>Read: </label>
-				${book.read}
+				<span class="read">${book.readFormatted}</span>
 			</div>
 			<c:if test="${(book.read) == true}">
 				<div>
-					<label>Date Read: </label>${book.dateRead}
+					<label>Date Read: </label>
+					<span>${book.dateReadFormatted}</span>
 				</div>
 			</c:if>
 			<div>
-				<label>ASIN: </label>${book.asin}
+				<label>ASIN: </label>
+				<span>${book.asin}</span>
 			</div>
 			<div>
-				<label>Published: </label>${book.publishedDate}
+				<label>Published: </label>
+				<span>${book.publishedDateFormatted}</span>
 			</div>
 		</div>
 		
