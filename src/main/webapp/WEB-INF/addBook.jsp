@@ -31,11 +31,23 @@
 		</div>
 		<div>
 			<f:label path="authors">Authors:</f:label>
-			<f:select path="authors" items="${authors}" itemLabel="fullName" multiple="multiple" required="required"/>
+			<f:select path="authors" items="${authors}" itemLabel="fullName" itemValue="authorId" multiple="multiple" required="required"/>
 		</div>
 		<div>
 			<f:label path="read">Read:</f:label>
 			<f:input path="read" type="text"/>
+		</div>
+		<div>
+			<f:label path="dateRead">Date Read:</f:label>
+			<f:input path="dateRead" type="date"/>
+		</div>
+		<div>
+			<f:label path="asin">ASIN:</f:label>
+			<f:input path="asin" type="text"/>
+		</div>
+		<div>
+			<f:label path="publishedDate">Published:</f:label>
+			<f:input path="publishedDate" type="date"/>
 		</div>
 		<div>
 			<button type="submit">Add Book</button>
