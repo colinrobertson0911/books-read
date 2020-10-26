@@ -1,6 +1,7 @@
 package com.example.booksread.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,10 @@ public class BookService {
     
     public Book retrieveOne(Long bookId){
     	return bookDao.findByBookId(bookId);
+    }
+    
+    public Optional<Book> findById(Long bookId){
+    	return bookDao.findById(bookId);
     }
 
     public List<Book> findByTitle(String title){
@@ -40,6 +45,10 @@ public class BookService {
 
     public List<Book> findAllNotRead() {
         return bookDao.findAllNotRead();
+    }
+    
+    public List<Book> findAllOrderedBySeries(){
+    	return bookDao.findAllOrderBySeries();
     }
     
 }

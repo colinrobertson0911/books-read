@@ -21,5 +21,8 @@ public interface BookDao extends JpaRepository<Book, Long> {
     List<Book> findAllNotRead();
 
 	Book findByBookId(Long bookId);
+	
+	@Query("select b from Book b order by b.series")
+	List<Book> findAllOrderBySeries();
     
 }

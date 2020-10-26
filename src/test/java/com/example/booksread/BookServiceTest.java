@@ -14,6 +14,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
@@ -67,5 +68,12 @@ public class BookServiceTest {
     	List<Book> books = bookService.findByAuthor("Shayne Silvers");
     	System.out.println(books);
     	assertFalse(books.isEmpty());
+    }
+    
+    @Test
+    public void test_thatBooksCanBeRetreivedInOrderOfSeries() {
+    	List<Book> books = bookService.findAllOrderedBySeries();
+    	Book book = books.get(0);
+    	assertEquals("Midnight Curse", book.getTitle());
     }
 }

@@ -1,5 +1,7 @@
 package com.example.booksread.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -66,6 +68,26 @@ public class HomeController {
 	@PostMapping("addAuthorSubmit")
 	public ModelAndView addAuthorSubmit(@ModelAttribute("author")Author author) {
 		authorService.save(author);
+		return new ModelAndView("home.jsp", "books", bookService.findAll());
+	}
+	
+	@GetMapping("orderBySeries")
+	public ModelAndView orderBySeries() {
+		return new ModelAndView("home.jsp", "books", bookService.findAllOrderedBySeries());
+	}
+	
+	@GetMapping("editBook")
+	public ModelAndView editBook(@RequestParam("bookId")Long bookId) {
+		Optional<Book> book = bookService.findById(bookId);
+		ModelAndView modelAndView = new ModelAndView("WEB-INF/editBook.jsp");
+		modelAndView.addObject("book", book.get());
+		modelAndView.addObject("authors", authorService.findAll());
+		return modelAndView;
+	}
+	
+	@PostMapping("editBookSubmit")
+	public ModelAndView editBookSubmit(@ModelAttribute("book")Book book) {
+		bookService.save(book);
 		return new ModelAndView("home.jsp", "books", bookService.findAll());
 	}
 

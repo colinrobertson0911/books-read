@@ -33,6 +33,9 @@
 		</nav>
 	</header>
 	
+	<form action="orderBySeries" method="get">
+		<button>Order By Series</button>
+	</form>
 	<div class="page-container">
 	<h3>${visabilityMessage}</h3> <span class="error">${errorMessage}</span>
 			<c:forEach var="book" items="${books}">

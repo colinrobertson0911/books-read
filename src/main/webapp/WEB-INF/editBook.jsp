@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Adding a book</title>
+	<title>Edit book</title>
 	<link rel="stylesheet" href="css/stylesheet.css" type="text/css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -17,17 +17,16 @@
 		<div class="col col--6">
 			<h1 class="page-title">Books Read</h1>
 		</div>
-		
 	</header>
-	<h2>Add a book</h2>
-	<f:form method="post" action="addBookSubmit" modelAttribute="book">
+	<h2>Editing book: ${book.title}</h2>
+	<f:form method="post" action="editBookSubmit" modelAttribute="book">
 		<div>
 			<f:label path="title">Title:</f:label>
 			<f:input path="title" type="text" required="required"/>
 		</div>
 		<div>
 			<f:label path="series">Series:</f:label>
-			<f:input path="series" type="text"/>
+			<f:input path="series" type="text" />
 		</div>
 		<div>
 			<f:label path="authors">Authors:</f:label>
@@ -38,20 +37,21 @@
 			<f:checkbox path="read" />
 		</div>
 		<div>
-			<f:label path="dateRead">Date Read:</f:label>
-			<f:input path="dateRead" type="date"/>
+			<f:label path="dateRead">Date read:</f:label>
+			<f:input path="dateRead" type="date" />
 		</div>
 		<div>
 			<f:label path="asin">ASIN:</f:label>
-			<f:input path="asin" type="text"/>
+			<f:input path="asin" type="text" required="required"/>
 		</div>
 		<div>
 			<f:label path="publishedDate">Published:</f:label>
-			<f:input path="publishedDate" type="date"/>
+			<f:input path="publishedDate" type="date" required="required"/>
 		</div>
 		<div>
-			<button type="submit">Add Book</button>
+			<button type="submit">Update Book</button>
 		</div>
+		<f:hidden path="bookId"/>
 	</f:form>
 </body>
 </html>

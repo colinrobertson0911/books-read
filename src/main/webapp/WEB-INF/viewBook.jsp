@@ -17,6 +17,9 @@
 	</header>
 	
 	<div>
+		<div>
+			<a href="editBook?bookId=${book.bookId}">
+		
 			
 		<div  class="col col--4 books">
 			<div class="title">
@@ -48,7 +51,8 @@
 				<span>${book.publishedDateFormatted}</span>
 			</div>
 		</div>
-		
+		</a>
+		</div>
 	</div>
 </body>
 </html>
